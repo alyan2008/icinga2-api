@@ -18,12 +18,9 @@ parser.add_argument('display_name',
 
 parser.add_argument('vars_service',
     choices=['cleanspeak', 'cron', 'admin', 'smartfox', 'PHP', 'sessions', 'Redis', 'playerDB', 'playercoreDB', 'tournamentDB', 'bannerDB', 'gameDB', 'coreDB', 'transactionDB'],
+    default="",
     help="Service Name")
 
-parser.add_argument('vars_role',
-    choices=['role1', 'role2', 'role3'],
-    help="Service Name")
- 
 parser.add_argument('vars_production',
     choices=['YES', 'NO'],
     help="Production Server")
@@ -60,4 +57,4 @@ args = parser.parse_args()
 
 print(args.host)
 
-os.system('curl -k -s -u icinga:icinga -H \'Accept: application/json\' -X PUT \'https://192.168.253.134:5665/v1/objects/hosts/%s\' -d \'{ "templates": [ "generic-host" ], "attrs": { "address": "%s", "check_command": "hostalive", "display_name" : "%s", "vars.service" : "%s", "vars.production" : "%s", "vars.datacenter" : "%s", "vars.app" : "%s", "vars.type" : "%s", "vars.role" : "%s", "vars.cpu" : "%s"} }\'' % (args.host, args.address, args.display_name, args.vars_service, args.vars_production, args.vars_datacenter, args.vars_app, args.vars_type, args.vars_role, args.vars_cpu))
+os.system('curl -k -s -u icinga:icinga -H \'Accept: application/json\' -X PUT \'https://192.168.253.134:5665/v1/objects/hosts/%s\' -d \'{ "templates": [ "generic-host" ], "attrs": { "address": "%s", "check_command": "hostalive", "display_name" : "%s", "vars.service" : "%s", "vars.production" : "%s", "vars.datacenter" : "%s", "vars.app" : "%s", "vars.type" : "%s", "vars.cpu" : "%s"} }\'' % (args.host, args.address, args.display_name, args.vars_service, args.vars_production, args.vars_datacenter, args.vars_app, args.vars_type, args.vars_cpu))
