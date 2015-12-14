@@ -17,7 +17,7 @@ parser.add_argument('display_name',
     help="display_name")
 
 parser.add_argument('vars_service',
-    choices=['service1', 'service2', 'service3'],
+    choices=['cleanspeak', 'cron', 'admin', 'smartfox', 'PHP', 'sessions', 'Redis', 'playerDB', 'playercoreDB', 'tournamentDB', 'bannerDB', 'gameDB', 'coreDB', 'transactionDB'],
     help="Service Name")
 
 parser.add_argument('vars_role',
@@ -29,19 +29,19 @@ parser.add_argument('vars_production',
     help="Production Server")
 
 parser.add_argument('vars_datacenter',
-    choices=['datacenter1', 'datacenter2'],
+    choices=['IAD', 'ATL', 'LAX'],
     help="Datacenter Name")
 
 parser.add_argument('vars_app',
-    choices=['app1', 'app2'],
+    choices=['Bingo-Blitz', 'Bingo-Rush', 'TRS'],
     help="App Name")
 
 parser.add_argument('vars_type',
-    choices=['type1', 'type2'],
+    choices=['applications', 'Couchbase', 'Redis', 'MySQL'],
     help="Type Name")
 
 parser.add_argument('vars_cpu',
-    choices=['cpu_load_0_20', 'cpu_load_0_30'],
+    choices=['cpu_load_0_10', 'cpu_load_0_15', 'cpu_load_0_20', 'cpu_load_0_60'],
     help="CPU thresholds")
 
 args = parser.parse_args()
